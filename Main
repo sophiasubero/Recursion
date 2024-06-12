@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] numbers = new int[5];
+
+        // Prompt user to enter five numbers
+        System.out.println("Enter five numbers:");
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Number " + (i + 1) + ": ");
+            numbers[i] = sc.nextInt();
+        }
+
+        // Calculate sum using recursion
+        int sum = calculateSum(numbers, 0);
+
+        // Display the sum
+        System.out.println("Sum of the numbers: " + sum);
+    }
+
+    // Recursive method to calculate sum
+    public static int calculateSum(int[] arr, int index) {
+        // Base case: If index is equal to the length of array, return 0
+        if (index == arr.length) {
+            return 0;
+        }
+        // Recursive case: Add the current element to the sum of the rest of the elements
+        return arr[index] + calculateSum(arr, index + 1);
+    }
+}
